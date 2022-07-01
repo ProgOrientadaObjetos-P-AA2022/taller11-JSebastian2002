@@ -40,10 +40,9 @@ public class MenuCarta extends Carta{
 
     public void setPorcentaje(double porcentaje) {
         this.porcentaje = (porcentaje * Valorinicalmenu)/100;
-    }
-    public double getValortotal() {
-        return Valormenu;
-    }
+        
+            
+        }
     @Override
     public String toString() {
         String reporte=String.format("Restaurante\n"
@@ -63,9 +62,12 @@ public class MenuCarta extends Carta{
 
     @Override
     public void calcularValortotal() {
-        Valormenu = (Valorinicalmenu + Valorporcion + Valorbebida) + porcentaje;
+        Valormenu = (Valorinicalmenu + Valorporcion + Valorbebida) + porcentaje;   
     }
-    
+    public double getValortotal(){
+        return Valormenu;
+    }
+
     
 }
 

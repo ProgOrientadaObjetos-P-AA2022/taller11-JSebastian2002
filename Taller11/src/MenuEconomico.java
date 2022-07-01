@@ -22,11 +22,6 @@ public class MenuEconomico extends Carta{
     public void setDescuento(double Descuento) {
         this.Descuento = (Descuento * Valorinicalmenu)/100;
     }
-
-
-    public double getValortotal(){
-        return Valormenu;
-    }
         @Override
     public String toString() {
         String reporte=String.format("Restaurante\n"
@@ -43,6 +38,9 @@ public class MenuEconomico extends Carta{
     @Override
     public void calcularValortotal() {
         Valormenu = Valorinicalmenu - Descuento;
+    }
+        public double getValortotal(){
+        return Valormenu;
     }
  
 }

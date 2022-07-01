@@ -35,10 +35,6 @@ public class MenuNiños extends Carta{
         this.valorpaste = valorpaste;
     }
 
-
-    public double getValortotal(){
-        return Valormenu;
-    }
     @Override
     public String toString() {
         String reporte=String.format("Restaurante\n"
@@ -56,6 +52,9 @@ public class MenuNiños extends Carta{
     @Override
     public void calcularValortotal() {
         Valormenu = (Valorinicalmenu + Valorhelado + valorpaste);
+    }
+    public double getValortotal(){
+        return Valormenu;
     }
     
     

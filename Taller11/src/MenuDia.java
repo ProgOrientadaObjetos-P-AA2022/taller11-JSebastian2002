@@ -34,9 +34,7 @@ public MenuDia(String nombre, double valor,double costopostre, double cosotbebid
     }
 
 
-    public double getValortotal(){
-        return Valormenu;
-    }
+
     @Override
     public String toString() {
         String reporte=String.format("Restaurante\n"
@@ -54,6 +52,9 @@ public MenuDia(String nombre, double valor,double costopostre, double cosotbebid
     @Override
     public void calcularValortotal() {
         Valormenu = (Valorinicalmenu + Valorpostre + Valorbebida);
+    }
+    public double getValortotal(){
+        return Valormenu;
     }
     
     

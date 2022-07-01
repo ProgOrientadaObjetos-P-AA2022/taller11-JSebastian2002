@@ -43,6 +43,7 @@ public abstract class Carta {
     }
     
     public abstract void calcularValortotal();
+    
     @Override
     public String toString() {
         String reporte = String.format(""
