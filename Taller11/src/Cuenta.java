@@ -14,7 +14,7 @@ public class Cuenta {
     private String nombre;
     private double valortotal;
     private double subtotal;
-    private double iva;
+    private double iva=0.10;
     private ArrayList<Carta> allmenu = new ArrayList<>();
 
     public String getNombre() {
@@ -48,7 +48,7 @@ public class Cuenta {
     }
 
     public void setIva(double iva) {
-        this.iva = 0.12;
+        this.iva = iva;
     }
 
     public ArrayList<Carta> getAllmenu() {
@@ -60,10 +60,8 @@ public class Cuenta {
     }  
      @Override
     public String toString() {
-        String reporte = String.format("Restaurante\n"
-                +"Factura\n"
-                +"Datos del cliente"
-                +"Nombre del cliente:%s\n", getNombre());
+        String reporte = String.format("Factura\n"
+                +"Cliente: %s\n", getNombre());
         for (int i = 0; i < getAllmenu().size(); i++) {
             reporte  = String.format("%s"
                     + "%d "

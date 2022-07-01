@@ -35,25 +35,27 @@ public class MenuNiños extends Carta{
         this.valorpaste = valorpaste;
     }
 
-    @Override
-    public void calcularvValortotal() {
-        Valormenu = (Valorinicalmenu + Valorhelado + valorpaste);
-    }
+
     public double getValortotal(){
         return Valormenu;
     }
     @Override
     public String toString() {
-        String reporte=String.format("Restaurante"
-                + "Menu Para niños\n%s",super.toString());
+        String reporte=String.format("Restaurante\n"
+                + "Menu del dia\n%s",super.toString());
         reporte=String.format("%s"
-                + "Costo de la porcion de helado:%.2f\n"
-                + "Costo de la porcion de pastel:%.2f\n"
-                + "Valor del menu:%.2f\n",reporte,
+                + "\tCosto de la porcion de helado:%.2f\n"
+                + "\tCosto de la porcion de pastel:%.2f\n"
+                + "\tValor del menu:%.2f\n",reporte,
                 getValorhelado(),
                 getValorhelado(),
                 getValormenu());
         return reporte;
+    }
+
+    @Override
+    public void calcularValortotal() {
+        Valormenu = (Valorinicalmenu + Valorhelado + valorpaste);
     }
     
     

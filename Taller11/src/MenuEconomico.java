@@ -23,24 +23,26 @@ public class MenuEconomico extends Carta{
         this.Descuento = (Descuento * Valorinicalmenu)/100;
     }
 
-    @Override
-    public void calcularvValortotal() {
-        Valormenu = Valorinicalmenu - Descuento;
-    }
+
     public double getValortotal(){
         return Valormenu;
     }
         @Override
     public String toString() {
-        String reporte=String.format("Restaurante"
-                + "Menu Economico\n%s",super.toString());
+        String reporte=String.format("Restaurante\n"
+                + "\tMenu Economico\n%s",super.toString());
         reporte=String.format("%s"
-                + "Porcentaje de descuento:%.2f\n"
-                + "Valor del Menu: %.2f\n"
+                + "\tPorcentaje de descuento:%.2f\n"
+                + "\tValor del Menu: %.2f\n"
                 ,reporte,
                 getDescuento(),
                 getValormenu());
         return reporte;
+    }
+
+    @Override
+    public void calcularValortotal() {
+        Valormenu = Valorinicalmenu - Descuento;
     }
  
 }
