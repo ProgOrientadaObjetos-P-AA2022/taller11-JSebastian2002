@@ -15,11 +15,7 @@ public class Cuenta {
     private double valortotal;
     private double subtotal;
     private double iva;
-    private ArrayList<Menu> allmenu = new ArrayList<>();
-    
-    public Cuenta(){
-        
-    }
+    private ArrayList<Carta> allmenu = new ArrayList<>();
 
     public String getNombre() {
         return nombre;
@@ -34,18 +30,17 @@ public class Cuenta {
     }
     public void calcularValortotal() {
         for (int i = 0; i < allmenu.size(); i++) {
-            subtotal = subtotal + allmenu.get(i).getValorMenu();
+            subtotal = subtotal + allmenu.get(i).getValormenu();
         }
         iva = subtotal * iva;
         valortotal = subtotal + iva;
     }
-
-    public void setValortotal(double valortotal) {
-        this.valortotal = valortotal;
-    }
     
     public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
+    }
+    public double getSubtotal(){
+        return subtotal;
     }
 
     public double getIva() {
@@ -56,14 +51,34 @@ public class Cuenta {
         this.iva = 0.12;
     }
 
-    public ArrayList<Menu> getAllmenu() {
+    public ArrayList<Carta> getAllmenu() {
         return allmenu;
     }
 
-    public void setAllmenu(ArrayList<Menu> allmenu) {
+    public void setAllmenu(ArrayList<Carta> allmenu) {
         this.allmenu = allmenu;
+    }  
+     @Override
+    public String toString() {
+        String reporte = String.format("Restaurante\n"
+                +"Factura\n"
+                +"Datos del cliente"
+                +"Nombre del cliente:%s\n", getNombre());
+        for (int i = 0; i < getAllmenu().size(); i++) {
+            reporte  = String.format("%s"
+                    + "%d "
+                    + "%s\n", reporte ,(i+1),
+                    getAllmenu().get(i));
+        }
+        reporte = String.format("\n%s"
+                + "Subtotal:%.2f\n"
+                + "Iva:%.2f\n"
+                + "Total a pagar:%.2f\n", reporte ,
+                getSubtotal(),
+                getIva(),
+                getValortotal());
+        return reporte;
     }
-    
-    
 
+ 
 }

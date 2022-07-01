@@ -12,6 +12,11 @@ public abstract class Carta {
     protected String Nombreplato;
     protected double Valormenu;
     protected double Valorinicalmenu;
+    
+    public Carta(String nombre, double valor) {
+        Nombreplato = nombre;
+        Valorinicalmenu = valor;
+    }
 
     public String getNombreplato() {
         return Nombreplato;
@@ -36,8 +41,16 @@ public abstract class Carta {
     public void setValorinicalmenu(double Valorinicalmenu) {
         this.Valorinicalmenu = Valorinicalmenu;
     }
+    @Override
+    public String toString() {
+        String reporte = String.format(""
+                + "Nombre del plato: %s\n"
+                + "Valor del menu inicial: %.2f\n",
+                getNombreplato(),
+                getValorinicalmenu());
+        return reporte;
+    }
     
-    public abstract void calcularvValortotal();
 
     
 
