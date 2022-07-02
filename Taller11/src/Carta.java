@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package taller11;
 
 /**
  *
@@ -11,51 +12,45 @@ public abstract class Carta {
     
     protected String Nombreplato;
     protected double Valormenu;
-    protected double Valorinicalmenu;
+    protected double Valorinicial;
     
-    public Carta(String nombre, double valor) {
-        Nombreplato = nombre;
-        Valorinicalmenu = valor;
-    }
-
-    public String getNombreplato() {
-        return Nombreplato;
+    public Carta(String nb, double inicial){
+        Nombreplato = nb;
+        Valorinicial = inicial;
     }
 
     public void setNombreplato(String Nombreplato) {
         this.Nombreplato = Nombreplato;
     }
 
-    public double getValormenu() {
-        return Valormenu;
-    }
-
     public void setValormenu(double Valormenu) {
         this.Valormenu = Valormenu;
     }
 
-    public double getValorinicalmenu() {
-        return Valorinicalmenu;
+    public void setValorinicial(double Valorinicial) {
+        this.Valorinicial = Valorinicial;
     }
 
-    public void setValorinicalmenu(double Valorinicalmenu) {
-        this.Valorinicalmenu = Valorinicalmenu;
+    public String getNombreplato() {
+        return Nombreplato;
+    }
+
+    public double getValormenu() {
+        return Valormenu;
+    }
+
+    public double getValorinicial() {
+        return Valorinicial;
     }
     
-    public abstract void calcularValortotal();
-    
+    public abstract void calcularvalorMenuTotal();
+
     @Override
     public String toString() {
-        String reporte = String.format(""
-                + "\tNombre del plato: %s\n"
-                + "\tValor del menu inicial: %.2f\n",
-                getNombreplato(),
-                getValorinicalmenu());
-        return reporte;
+        String cadena = String.format("Plato:%s\n"
+                + "Valor menu inicial:%.2f\n",getNombreplato(),
+                getValorinicial());
+        return cadena;
     }
-    
 
-    
-
-    
 }

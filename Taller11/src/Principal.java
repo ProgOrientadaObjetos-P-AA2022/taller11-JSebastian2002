@@ -1,10 +1,10 @@
-
-import java.util.ArrayList;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package taller11;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -12,38 +12,38 @@ import java.util.ArrayList;
  */
 public class Principal {
     public static void main(String[] args) {
-        ArrayList<Carta> allmenu = new ArrayList<>();
-        Cuenta cuenta = new Cuenta();       
-        cuenta.setNombre("Rene Elizalde");
+        
+        ArrayList<Carta>allmenu = new ArrayList<>();
+        MenuDia nn1 = new MenuDia("NiÃ±os 01",2, 1, 1.50);
+        nn1.calcularvalorMenuTotal();
+        
+        MenuDia nn2 = new  MenuDia("NiÃ±os 02",3, 1, 1.50);
+        nn2.calcularvalorMenuTotal();
+        
+        MenuEconomico ec1 = new MenuEconomico("Econo 001",4);
+        ec1.setPorcentajedescuento(25);
+        ec1.calcularvalorMenuTotal();
+        
+        MenuDia nn3 = new MenuDia("Dia 001",5,1,1);
+        nn3.calcularvalorMenuTotal();
+        
+        MenuCarta ct1 = new MenuCarta("Carta 001", 6 ,1.5, 2);
+        ct1.setPorcentaje(10);
+        ct1.calcularvalorMenuTotal();
+        
+        allmenu.add(nn1);
+        allmenu.add(nn2);
+        allmenu.add(ec1);
+        allmenu.add(nn3);
+        allmenu.add(ct1);
+        
+        Cuenta cuenta = new Cuenta();
         cuenta.setAllmenu(allmenu);
-        cuenta.calcularValortotal();     
-        MenuNiños niño1 = new MenuNiños("Niños 01",2.00 , 1.00, 1.50);
-        niño1.calcularValortotal();
-        MenuNiños niño2 = new MenuNiños("Niños 02",3.00, 1.00, 1.50);
-        niño2.calcularValortotal();
-        MenuEconomico ec = new MenuEconomico("Econo 001",4.00);
-        ec.setDescuento(10);
-        ec.calcularValortotal();
-        MenuDia dia1 = new MenuDia("Dia 001", 5.00, 1.00, 1.00);
-        dia1.calcularValortotal();
-        MenuCarta carta = new MenuCarta("Carta 001", 6.0, 1.5, 2.0);
-        carta.setPorcentaje(10.00);
-        carta.calcularValortotal();
-        allmenu.add(niño1);
-        allmenu.add(niño2);
-        allmenu.add(ec);
-        allmenu.add(dia1);
-        allmenu.add(carta);
-        
+        cuenta.setNombre("Rene Elizalde");
+        cuenta.calcularValortotal();
         System.out.println(cuenta);
-
-
-
-
         
-        
-     
+
         
     }
-    
 }

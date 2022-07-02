@@ -2,45 +2,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package taller11;
 
 /**
  *
  * @author E.N.D
  */
 public class MenuEconomico extends Carta{
-    double Descuento;
-    
-    public MenuEconomico(String nombre, double valor) {
-        super(nombre, valor);
-        
+    double Porcentajedescuento=25.00;
+
+    public MenuEconomico(String nb, double inicial) {
+        super(nb, inicial);
+    }
+    public void setPorcentajedescuento(double Porcentajedescuento) {
+        this.Porcentajedescuento = Porcentajedescuento;
+    }
+        public double getPorcentajedescuento() {
+        return Porcentajedescuento;
     }
 
-    public double getDescuento() {
-        return Descuento;
+    @Override
+    public void calcularvalorMenuTotal() {
+        Valormenu =  Valorinicial - (((Porcentajedescuento * Valorinicial))/ 100);
     }
-
-    public void setDescuento(double Descuento) {
-        this.Descuento = (Descuento * Valorinicalmenu)/100;
+    public double getValortotal(){
+        return Valormenu;
     }
-        @Override
+    @Override
     public String toString() {
-        String reporte=String.format("Restaurante\n"
-                + "\tMenu Economico\n%s",super.toString());
-        reporte=String.format("%s"
-                + "\tPorcentaje de descuento:%.2f\n"
-                + "\tValor del Menu: %.2f\n"
-                ,reporte,
-                getDescuento(),
+        String reporte = String.format("Menu Economico\n%s", super.toString());
+        reporte = String.format("%s"
+                + "Porcentaje descuento%.2f\n"
+                + "Valor Menu:%.2f\n", reporte,
+                getPorcentajedescuento(),
                 getValormenu());
         return reporte;
     }
 
-    @Override
-    public void calcularValortotal() {
-        Valormenu = Valorinicalmenu - Descuento;
-    }
-        public double getValortotal(){
-        return Valormenu;
-    }
- 
+    
 }

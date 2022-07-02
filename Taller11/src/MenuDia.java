@@ -2,60 +2,57 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package taller11;
 
 /**
  *
  * @author E.N.D
  */
-public class MenuDia extends Carta{
-    double Valorpostre;
-    double Valorbebida;
+public class MenuDia extends Carta {
     
-public MenuDia(String nombre, double valor,double costopostre, double cosotbebida){
-        super(nombre, valor);
-        Valorpostre = costopostre;
-        Valorbebida = cosotbebida;
-        
-    }
-    public double getValorpostre() {
-        return Valorpostre;
+    double Valorpostre;
+    double ValorBebida;
+    
+
+    public MenuDia(String nb, double inicial, double postre, double bebida) {
+        super(nb, inicial);
+       Valorpostre = postre;
+       ValorBebida = bebida;
     }
 
     public void setValorpostre(double Valorpostre) {
         this.Valorpostre = Valorpostre;
     }
 
-    public double getValorbebida() {
-        return Valorbebida;
+    public void setValorBebida(double ValorBebida) {
+        this.ValorBebida = ValorBebida;
     }
 
-    public void setValorbebida(double Valorbebida) {
-        this.Valorbebida = Valorbebida;
+    public double getValorpostre() {
+        return Valorpostre;
     }
 
-
-
+    public double getValorBebida() {
+        return ValorBebida;
+    }
     @Override
-    public String toString() {
-        String reporte=String.format("Restaurante\n"
-                + "Menu del dia\n%s",super.toString());
-        reporte=String.format("%s"
-                + "\tCosto del postre:%.2f\n"
-                + "\tCosto de la bebida:%.2f\n"
-                + "\tValor del menu:%.2f\n",reporte,
-                getValorpostre(),
-                getValorbebida(),
-                getValormenu());
-        return reporte;
-    }
-
-    @Override
-    public void calcularValortotal() {
-        Valormenu = (Valorinicalmenu + Valorpostre + Valorbebida);
+    public void calcularvalorMenuTotal() {
+        Valormenu = (Valorinicial + Valorpostre + ValorBebida);
     }
     public double getValortotal(){
         return Valormenu;
     }
-    
+    @Override
+    public String toString() {
+        String reporte=String.format("Menu del dia\n%s",super.toString());
+        reporte=String.format("%s"
+                + "Valor Postre:%.2f\n"
+                + "Valor Bebida:%.2f\n"
+                + "Valor Menu:%.2f\n",reporte,
+                getValorpostre(),
+                getValorBebida(),
+                getValormenu());
+        return reporte;
+    }
     
 }
